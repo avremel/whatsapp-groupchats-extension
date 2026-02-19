@@ -2,6 +2,8 @@
 
 A Chrome extension that auto-scrolls through WhatsApp Web group chats with smart features: speed control, important people highlighting, and hidden user blurring.
 
+![Overview](screenshots/overview.png)
+
 ## Install
 
 1. Download or clone this repo
@@ -13,6 +15,8 @@ A Chrome extension that auto-scrolls through WhatsApp Web group chats with smart
 ## Usage
 
 Click the **Scroller** button in the top-right corner to open the control panel.
+
+![Control Panel](screenshots/panel.png)
 
 ### Auto-Scroll
 
