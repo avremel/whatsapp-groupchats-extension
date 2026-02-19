@@ -1,0 +1,446 @@
+/* ===== WA Scroller Panel ===== */
+
+.wa-panel {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  max-height: 520px;
+  overflow: visible;
+  background: #1f2c33;
+  color: #e9edef;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  z-index: 10000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 13px;
+  user-select: none;
+  transition: opacity 0.2s;
+}
+
+.wa-panel.wa-hidden {
+  display: none;
+}
+
+/* Header */
+.wa-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #111b21;
+  border-radius: 12px 12px 0 0;
+  cursor: grab;
+}
+
+.wa-panel-header:active {
+  cursor: grabbing;
+}
+
+.wa-panel-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: #00a884;
+}
+
+.wa-panel-btn {
+  background: none;
+  border: none;
+  color: #8696a0;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.wa-panel-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e9edef;
+}
+
+/* Sections */
+.wa-panel-section {
+  padding: 10px 14px;
+  border-top: 1px solid #2a3942;
+}
+
+.wa-panel-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #8696a0;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+/* Scroll Controls */
+.wa-scroll-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wa-play-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #00a884;
+  color: #111b21;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.wa-play-btn:hover {
+  background: #06cf9c;
+}
+
+.wa-play-btn.wa-playing {
+  background: #e04b4b;
+}
+
+.wa-play-btn.wa-playing:hover {
+  background: #f06060;
+}
+
+.wa-speed-sliders {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.wa-speed-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wa-speed-control label {
+  font-size: 11px;
+  color: #8696a0;
+  white-space: nowrap;
+  min-width: 34px;
+}
+
+.wa-speed-control input[type="range"] {
+  flex: 1;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #2a3942;
+  border-radius: 2px;
+  outline: none;
+}
+
+.wa-speed-control input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #00a884;
+  cursor: pointer;
+}
+
+.wa-speed-control span {
+  font-size: 11px;
+  color: #00a884;
+  font-weight: 600;
+  min-width: 30px;
+  text-align: right;
+}
+
+/* User Lists (Important + Hidden) */
+.wa-user-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 6px 0;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.wa-user-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.wa-user-list li .wa-user-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wa-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.wa-dot-green {
+  background: #00a884;
+}
+
+.wa-dot-red {
+  background: #e04b4b;
+}
+
+.wa-remove-btn {
+  background: none;
+  border: none;
+  color: #8696a0;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  border-radius: 4px;
+}
+
+.wa-remove-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e9edef;
+}
+
+/* Add Row */
+.wa-add-row {
+  position: relative;
+}
+
+/* Combo Box */
+.wa-combo {
+  position: relative;
+  width: 100%;
+}
+
+.wa-combo-input {
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #2a3942;
+  background: #111b21;
+  color: #e9edef;
+  font-size: 12px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.wa-combo-input:focus {
+  border-color: #00a884;
+}
+
+.wa-combo-list {
+  display: none;
+  position: fixed;
+  max-height: 150px;
+  overflow-y: auto;
+  background: #111b21;
+  border: 1px solid #2a3942;
+  border-radius: 6px;
+  z-index: 10002;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.wa-combo.wa-combo-open .wa-combo-list {
+  display: block;
+}
+
+.wa-combo-item {
+  padding: 6px 10px;
+  font-size: 12px;
+  color: #e9edef;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wa-combo-item:hover,
+.wa-combo-item.wa-combo-active {
+  background: #2a3942;
+}
+
+.wa-combo-item mark {
+  background: none;
+  color: #00a884;
+  font-weight: 600;
+}
+
+.wa-combo-empty {
+  padding: 6px 10px;
+  font-size: 11px;
+  color: #8696a0;
+  font-style: italic;
+}
+
+
+/* Floating Action Button (minimized state) */
+.wa-fab {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 18px;
+  border: none;
+  background: #1f2c33;
+  color: #e9edef;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 10000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.wa-fab:hover {
+  background: #2a3942;
+}
+
+.wa-fab.wa-hidden {
+  display: none;
+}
+
+.wa-fab-gear {
+  width: 16px;
+  height: 16px;
+  color: #00a884;
+}
+
+.wa-fab-text {
+  line-height: 1;
+}
+
+/* ===== Message Highlights ===== */
+
+.wa-important {
+  position: relative !important;
+  border-left: 5px solid #00a884 !important;
+  background: rgba(0, 168, 132, 0.08) !important;
+  box-shadow: inset 0 0 0 1px rgba(0, 168, 132, 0.15), 0 0 12px rgba(0, 168, 132, 0.06) !important;
+  border-radius: 4px !important;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.wa-important-badge {
+  display: inline-block;
+  margin-left: 6px;
+  white-space: nowrap;
+  padding: 0 5px;
+  background: rgba(0, 168, 132, 0.9);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  vertical-align: middle;
+  height: 14px;
+  line-height: 14px;
+  align-self: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  pointer-events: none;
+}
+
+/* ===== Blurred Messages ===== */
+
+.wa-blurred {
+}
+
+/* Blur all direct children except our overlay */
+.wa-blurred > *:not(.wa-blur-overlay) {
+  filter: blur(10px) !important;
+  pointer-events: none;
+}
+
+.wa-blurred.wa-revealed > *:not(.wa-blur-overlay) {
+  filter: none !important;
+  pointer-events: auto;
+}
+
+.wa-blurred.wa-revealed .wa-blur-overlay {
+  display: none;
+}
+
+/* Blur Overlay - compact pill badge, sticky while scrolling */
+.wa-blur-overlay {
+  position: sticky;
+  top: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 4px 10px;
+  margin: 0 0 -28px 4px;
+  z-index: 9999;
+  background: rgba(30, 30, 30, 0.85);
+  border-radius: 8px;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.wa-blur-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fca5a5;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.wa-blur-show-btn {
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  background: rgba(248, 113, 113, 0.15);
+  color: #fca5a5;
+  font-size: 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.wa-blur-show-btn:hover {
+  background: rgba(248, 113, 113, 0.3);
+  color: #fff;
+}
+
+/* ===== Toast Notification ===== */
+
+.wa-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #111b21;
+  color: #e9edef;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  z-index: 10001;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+}
+
+.wa-toast.wa-toast-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

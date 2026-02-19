@@ -1,0 +1,57 @@
+<div id="wa-scroller-panel" class="wa-panel wa-hidden">
+  <!-- Header (draggable) -->
+  <div id="wa-panel-header" class="wa-panel-header">
+    <span class="wa-panel-title">Scroller</span>
+    <button id="wa-panel-minimize" class="wa-panel-btn" title="Minimize">&#x2212;</button>
+  </div>
+
+  <!-- Scroll Controls -->
+  <div class="wa-panel-section">
+    <div class="wa-panel-section-title">Scroll</div>
+    <div class="wa-scroll-controls">
+      <button id="wa-play-btn" class="wa-play-btn" title="Play / Pause">&#9654;</button>
+      <div class="wa-speed-sliders">
+        <div class="wa-speed-control">
+          <label for="wa-speed-slider">Speed</label>
+          <input id="wa-speed-slider" type="range" min="1" max="10" step="0.5" value="2">
+          <span id="wa-speed-label">2x</span>
+        </div>
+        <div class="wa-speed-control">
+          <label for="wa-important-speed-slider">Important</label>
+          <input id="wa-important-speed-slider" type="range" min="0.1" max="5" step="0.1" value="0.4">
+          <span id="wa-important-speed-label">0.4x</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Important People -->
+  <div class="wa-panel-section">
+    <div class="wa-panel-section-title">Important People</div>
+    <ul id="wa-important-list" class="wa-user-list"></ul>
+    <div class="wa-add-row">
+      <div class="wa-combo" id="wa-important-combo">
+        <input class="wa-combo-input" placeholder="Type to search..." autocomplete="off">
+        <div class="wa-combo-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden Users -->
+  <div class="wa-panel-section">
+    <div class="wa-panel-section-title">Hidden Users</div>
+    <ul id="wa-hidden-list" class="wa-user-list"></ul>
+    <div class="wa-add-row">
+      <div class="wa-combo" id="wa-hidden-combo">
+        <input class="wa-combo-input" placeholder="Type to search..." autocomplete="off">
+        <div class="wa-combo-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Minimized floating button -->
+<button id="wa-scroller-fab" class="wa-fab" title="Open Scroller">
+  <svg class="wa-fab-gear" viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.48.48 0 0 0-.48-.41h-3.84a.48.48 0 0 0-.48.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.49.49 0 0 0-.59.22L2.74 8.87a.48.48 0 0 0 .12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.26.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"/></svg>
+  <span class="wa-fab-text">Scroller</span>
+</button>
