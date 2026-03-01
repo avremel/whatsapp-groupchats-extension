@@ -1,6 +1,6 @@
 # WhatsApp Group Chat Scroller
 
-Tired of scrolling through endless WhatsApp group chats trying to find the messages that actually matter? This Chrome extension does it for you.
+Tired of scrolling through endless WhatsApp group chats to catch up on unread messages? This Chrome extension might help you.
 
 Hit play, sit back, and let it auto-scroll through the conversation. Messages from people you care about get highlighted and the scroll slows down so you can read them. Messages from people you don't? Blurred out entirely.
 
